@@ -1,0 +1,12 @@
+project_name: landfall
+release:
+  prerelease: auto
+builds:
+  - id: landfall
+    main: ./cmd/landfall
+    binary: landfall
+archives:
+  - formats: ["tar.gz"]
+    files:
+      - LICENSE*
+      - README.md
