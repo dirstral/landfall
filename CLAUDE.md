@@ -16,12 +16,12 @@ landfall is a Go project for a code-navigation-focused MCP server: repository/co
 
 ## Build and test
 
-There is no `Makefile`; use the Go toolchain directly (this is exactly what CI runs):
+There is no `Makefile`; use the Go toolchain directly. CI (`.github/workflows/go.yml`) runs only the build and test steps:
 
-- Build: `go build ./...`
-- Test: `go test ./...`
-- Vet: `go vet ./...`
-- Format: `gofmt -l .` (should print nothing)
+- Build: `go build ./...` — run by CI
+- Test: `go test ./...` — run by CI
+- Vet: `go vet ./...` — not in CI; run locally before opening a PR
+- Format: `gofmt -l .` — not in CI; run locally (should print nothing)
 
 ## Releasing
 

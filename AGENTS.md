@@ -24,13 +24,13 @@ landfall is a Go, code-navigation-focused MCP server: repository/codebase naviga
 
 ## Build / test / CI commands
 
-There is no `Makefile`. Use the Go toolchain directly — these are the commands CI runs:
+There is no `Makefile`. Use the Go toolchain directly. Only the first two are run by CI:
 
 ```bash
-go build ./...   # build everything
-go test ./...    # run tests
-go vet ./...     # static checks
-gofmt -l .       # formatting (must print nothing)
+go build ./...   # build everything   — run by CI
+go test ./...    # run tests           — run by CI
+go vet ./...     # static checks       — not in CI; run locally before opening a PR
+gofmt -l .       # formatting          — not in CI; run locally (must print nothing)
 ```
 
 CI (`.github/workflows/go.yml`) runs `go build ./...` then `go test ./...` on Go 1.24 for every push and pull request targeting `main`, with `contents: read` permissions and in-progress-cancel concurrency.
