@@ -6,13 +6,13 @@ Operational guide for coding agents working in this repository.
 
 ## Before you start
 
-- Re-check whether the requested plan still matches the current codebase before making changes — this repo is an early-stage scaffold and moves fast.
+- Re-check whether the requested plan still matches the current codebase before making changes: this repo is an early-stage scaffold and moves fast.
 - Review relevant context first: `README.md` (scope and the dir2mcp boundary) and `docs/landfall-prd.md` (product scope/architecture, referenced from `cmd/landfall/main.go`) when present.
 - Preserve existing architecture and conventions unless the issue explicitly requires a refactor.
 
 ## Project summary
 
-landfall is a Go, code-navigation-focused MCP server: repository/codebase navigation, symbol- and structure-aware retrieval, and an MCP-native interface from day one. It is a **separate product contract from dir2mcp** with a hard boundary — **no direct imports from `dir2mcp` are permitted**. The binary is currently a scaffold stub (`cmd/landfall/main.go` prints `not yet implemented` and exits non-zero); most subsystems are not built yet.
+landfall is a Go, code-navigation-focused MCP server: repository/codebase navigation, symbol- and structure-aware retrieval, and an MCP-native interface from day one. It is a **separate product contract from dir2mcp** with a hard boundary: **no direct imports from `dir2mcp` are permitted**. The binary is currently a scaffold stub (`cmd/landfall/main.go` prints `not yet implemented` and exits non-zero); most subsystems are not built yet.
 
 ## Repo map
 
@@ -27,10 +27,10 @@ landfall is a Go, code-navigation-focused MCP server: repository/codebase naviga
 There is no `Makefile`. Use the Go toolchain directly. Only the first two are run by CI:
 
 ```bash
-go build ./...   # build everything   — run by CI
-go test ./...    # run tests           — run by CI
-go vet ./...     # static checks       — not in CI; run locally before opening a PR
-gofmt -l .       # formatting          — not in CI; run locally (must print nothing)
+go build ./...   # build everything; run by CI
+go test ./...    # run tests; run by CI
+go vet ./...     # static checks; not in CI; run locally before opening a PR
+gofmt -l .       # formatting; not in CI; run locally, must print nothing
 ```
 
 CI (`.github/workflows/go.yml`) runs `go build ./...` then `go test ./...` on Go 1.24 for every push and pull request targeting `main`, with `contents: read` permissions and in-progress-cancel concurrency.
